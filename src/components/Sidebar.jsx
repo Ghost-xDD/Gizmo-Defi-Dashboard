@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
+import { GiSamusHelmet } from 'react-icons/gi';
 import { MdOutlineCancel } from 'react-icons/md';
+import { SiBlockchaindotcom } from 'react-icons/si';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/static';
@@ -34,7 +36,7 @@ const Sidebar = () => {
         <>
           <div className="flex justify-between items-center">
             <Link to="/" onClick={handleCloseSideBar} className={styles.logo}>
-              <SiShopware /> <span>Gizmo</span>
+              <SiBlockchaindotcom /> <span>Gizmo</span>
             </Link>
 
             <button

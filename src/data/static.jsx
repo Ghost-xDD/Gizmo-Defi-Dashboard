@@ -87,26 +87,26 @@ export const themeColors = [
 export const chatData = [
   {
     // image: avatar2,
-    message: 'Roman Joined the Team!',
-    desc: 'Congratulate him',
+    message: 'You just transferred 0.2Eth to:',
+    desc: '- 0x643574849999483999',
     time: '9:08 AM',
   },
   {
     // image: avatar3,
-    message: 'New message received',
-    desc: 'Salma sent you new message',
+    message: 'ETH APY rate is up to 8.01%',
+    desc: 'via Uniswap',
     time: '11:56 AM',
   },
   {
     // image: avatar4,
-    message: 'New Payment received',
+    message: 'Average Gas price is down to 87.5 Gwei',
     desc: 'Check your earnings',
     time: '4:39 AM',
   },
   {
     // image: avatar,
-    message: 'Jolly completed tasks',
-    desc: 'Assign her new tasks',
+    message: 'New Token Listing',
+    desc: 'via Pancakeswap',
     time: '1:12 AM',
   },
 ];

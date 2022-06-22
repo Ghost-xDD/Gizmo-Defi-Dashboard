@@ -35,7 +35,7 @@ const Notification = () => {
         {chatData?.map((item, index) => (
           <div
             key={index}
-            className="flex items-center leading-8 gap-5 border-b-1 border-color p-3"
+            className="flex items-center leading-8 gap-5 border-b-1 border-color p-3 cursor-pointer"
           >
             {/* <img
               className="rounded-full h-10 w-10"

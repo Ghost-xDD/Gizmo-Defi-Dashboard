@@ -56,7 +56,7 @@ function App() {
               style={{ background: currentColor, borderRadius: '50%' }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
             >
-              <RiMoonLine />
+              <FiSettings />
             </button>
           </div>
           {activeMenu ? (
