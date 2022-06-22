@@ -5,6 +5,10 @@ import { FaExchangeAlt } from 'react-icons/fa';
 import { BsGear, BsPiggyBank } from 'react-icons/bs';
 import { BiDroplet } from 'react-icons/bi';
 import { GiChest } from 'react-icons/gi';
+import metamask from '../assets/metamask.png';
+import uniswap from '../assets/uniswap.png';
+import pancakeswap from '../assets/pancakeswap.png';
+import ethereum from '../assets/ethereum.png';
 
 export const links = [
   {
@@ -86,25 +90,25 @@ export const themeColors = [
 
 export const chatData = [
   {
-    // image: avatar2,
+    image: metamask,
     message: 'You just transferred 0.2Eth to:',
     desc: '- 0x643574849999483999',
     time: '9:08 AM',
   },
   {
-    // image: avatar3,
+    image: uniswap,
     message: 'ETH APY rate is up to 8.01%',
     desc: 'via Uniswap',
     time: '11:56 AM',
   },
   {
-    // image: avatar4,
+    image: ethereum,
     message: 'Average Gas price is down to 87.5 Gwei',
     desc: 'Check your earnings',
     time: '4:39 AM',
   },
   {
-    // image: avatar,
+    image: pancakeswap,
     message: 'New Token Listing',
     desc: 'via Pancakeswap',
     time: '1:12 AM',
