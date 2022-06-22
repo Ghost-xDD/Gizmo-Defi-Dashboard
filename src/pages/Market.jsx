@@ -5,7 +5,7 @@ const Market = () => {
   return (
     <div className="min-h-screen">
       <div className="mt-10" />
-      {/* <Trending /> */}
+      <Trending />
       <div className="mt-20">
         {/* <CMCTable /> */}
       </div>
