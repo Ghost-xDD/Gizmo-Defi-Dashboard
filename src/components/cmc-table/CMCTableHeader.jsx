@@ -18,7 +18,7 @@ const CMCTableHeader = () => {
         <th>Name</th>
         <th>Price</th>
         <th>24h %</th>
-        <th>7d %</th>
+        {/* <th>7d %</th> */}
         <th>
           <div className={styles.textIcon}>
             <p className="mr-2">Market Cap</p>

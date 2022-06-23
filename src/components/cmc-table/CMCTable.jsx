@@ -1,34 +1,33 @@
 import { useState, useContext, useEffect, useCallback } from 'react';
 import CMCTableHeader from './CMCTableHeader';
 import btc from '../../assets/btc.png';
-import { CoinMarketContext } from '../../contexts/CoinContext';
-// import
+import getTopCoins from '../../pages/api/getTopCoins';
+import { apiUrl } from '../../pages/api/coinApi';
+import axios from 'axios';
+import CMCTableRow from './CMCTableRow';
 
 const CMCTable = () => {
-  let { getTopTwentyCoins } = useContext(CoinMarketContext);
-  let [coinData, setCoinData] = useState(null);
+  let [coinData, setCoinData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const response = await axios(apiUrl, {
+        method: 'GET',
+        headers: {
+          Accept: '*/*',
+        },
+      });
+      const coin = response.data;
+      setCoinData(coin);
+      console.log(coin);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
 
   useEffect(() => {
-    setData();
+    getData();
   }, []);
-
-  const setData = useCallback(async () => {
-    try {
-      let apiResponse = await getTopTwentyCoins();
-      let filteredResponse = [];
-
-      for (let i = 0; i < apiResponse.length; i++) {
-        const element = apiResponse[i];
-
-        if (element.cmc_rank <= 20) filteredResponse.push(element);
-      }
-
-      setCoinData(filteredResponse);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, [getTopTwentyCoins]);
-  console.log(coinData);
 
   return (
     <div className="text-white font-bold px-[80px]">
@@ -41,17 +40,17 @@ const CMCTable = () => {
               return (
                 <CMCTableRow
                   key={index}
-                  starNum={coin.cmc_rank}
+                  starNum={coin.market_cap_rank}
                   coinName={coin.name}
                   coinSymbol={coin.symbol}
-                  coinIcon={btc}
+                  coinIcon={coin.image}
                   showBuy={true}
-                  hRate={coin.quote.USD.percent_change_24h}
-                  dRate={coin.quote.USD.percent_change_7d}
+                  hRate={coin.price_change_percentage_24h}
+                  dRate={coin.percent_change_7d}
                   hRateIsIncrement={true}
-                  price={coin.quote.USD.price}
-                  marketCapValue={coin.quote.USD.market_cap}
-                  volumeCryptoValue={coin.quote.USD.volume_24h}
+                  price={coin.current_price}
+                  marketCapValue={coin.market_cap}
+                  volumeCryptoValue={coin.total_volume}
                   volumeValue={coin.total_supply}
                   circulatingSupply={coin.circulating_supply}
                 />

@@ -64,15 +64,15 @@ const CMCTableRow = ({
           <></>
         )}
 
-        <td className="cursor-pointer" onClick={viewPrice}>
+        <td className="cursor-pointer">
           <p>${formatNum(price)}</p>
         </td>
         <td>
           <Rate isIncrement={hRateIsIncrement} rate={`${formatNum(hRate)}%`} />
         </td>
-        <td>
+        {/* <td>
           <Rate isIncrement={dRateIsIncrement} rate={`${formatNum(dRate)}%`} />
-        </td>
+        </td> */}
 
         <td>
           <div>
@@ -96,7 +96,7 @@ const CMCTableRow = ({
         </td>
 
         <td>
-          <Image src={getRandomGraph()} width={150} height={60} alt="graph" />
+          <img src={getRandomGraph()} width={150} height={60} alt="graph" />
         </td>
 
         <td>

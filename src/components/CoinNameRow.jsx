@@ -9,6 +9,10 @@ import solana from '../assets/solana.png';
 import bnb from '../assets/bnb.png';
 import avalanche from '../assets/avalanche.png';
 import shiba from '../assets/shiba.png';
+import dai from '../assets/dai.png';
+import tron from '../assets/tron.png';
+import dogecoin from '../assets/dogecoin.png';
+import wrapped from '../assets/wrapped.png';
 
 const styles = {
   coinNameRow: 'flex items-center',
@@ -45,7 +49,7 @@ const CoinNameRow = ({ name, icon, clicked }) => {
         );
       case 'Dogecoin':
         return (
-          <img src={shiba} className="rounded-full" width={20} height={20} />
+          <img src={dogecoin} className="rounded-full" width={20} height={20} />
         );
       case 'Cardano':
         return (
@@ -71,6 +75,22 @@ const CoinNameRow = ({ name, icon, clicked }) => {
             width={20}
             height={20}
           />
+        );
+      case 'Dai':
+        return (
+          <img src={dai} className="rounded-full" width={20} height={20} />
+        );
+      case 'TRON':
+        return (
+          <img src={tron} className="rounded-full" width={20} height={20} />
+        );
+      case 'Shiba Inu':
+        return (
+          <img src={shiba} className="rounded-full" width={20} height={20} />
+        );
+      case 'Wrapped Bitcoin':
+        return (
+          <img src={wrapped} className="rounded-full" width={20} height={20} />
         );
     }
   };

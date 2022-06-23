@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import fire from '../assets/fire.png';
-import chartUp from '../assets/chartUp.png';
 import btc from '../assets/btc.png';
 import usdt from '../assets/usdt.png';
-import gainers from '../assets/gainers.png';
 import recent from '../assets/recent.png';
+import usdc from '../assets/usdc.png';
 import ReactSwitch from 'react-switch';
 // import ChevronUp from '../assets/svg/chevronUp';
 import Rate from './cmc-table/Rate';
@@ -39,9 +37,9 @@ const trendingData = [
   },
   {
     number: 3,
-    symbol: 'BTC',
-    name: 'Bitcoin',
-    icon: btc,
+    symbol: 'USDC',
+    name: 'USD Coin',
+    icon: usdc,
     image:
       'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2099.svg',
     isIncrement: true,
