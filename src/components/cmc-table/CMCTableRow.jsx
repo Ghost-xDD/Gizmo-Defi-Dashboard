@@ -37,6 +37,8 @@ const CMCTableRow = ({
     'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1765.svg',
     'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2099.svg',
     'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7653.svg',
+    'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/6636.svg',
+    'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/5805.svg',
   ];
 
   const getRandomGraph = () => {
@@ -46,6 +48,16 @@ const CMCTableRow = ({
 
   const formatNum = (num) => {
     return Number(parseFloat(num).toFixed(2)).toLocaleString();
+  };
+
+  const applyIndicator = (hRate) => {
+    if (hRate > 0) {
+      return (
+        <Rate isIncrement={hRateIsIncrement} rate={`+${formatNum(hRate)}%`} />
+      );
+    } else {
+      return <Rate isIncrement={null} rate={`${formatNum(hRate)}%`} />;
+    }
   };
 
   return (
@@ -67,9 +79,7 @@ const CMCTableRow = ({
         <td className="cursor-pointer">
           <p>${formatNum(price)}</p>
         </td>
-        <td>
-          <Rate isIncrement={hRateIsIncrement} rate={`${formatNum(hRate)}%`} />
-        </td>
+        <td>{applyIndicator(hRate)}</td>
         {/* <td>
           <Rate isIncrement={dRateIsIncrement} rate={`${formatNum(dRate)}%`} />
         </td> */}

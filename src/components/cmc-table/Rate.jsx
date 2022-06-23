@@ -5,7 +5,7 @@ import ChevronUp from '../../assets/svg/chevronUp';
 const styles = {
   rate: 'rate flex items-center',
   red: 'ml-2 text-[#EA3943]',
-  green: 'ml-2 text-[#17C784]',
+  green: 'ml-2 text-[#17C784]', 
 };
 
 const Rate = ({ isIncrement, rate }) => {
