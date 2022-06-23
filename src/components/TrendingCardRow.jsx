@@ -19,7 +19,7 @@ const TrendingCardRow = ({
       <p className="opacity-40">{number}</p>
       <div className="w-full flex">
         <div className="mx-5">
-          {icon && <img src={icon} width={20} height={20} />}
+          {icon && <img src={icon} width={20} height={10} />}
         </div>
         <p className="font-bold">
           {name}
@@ -28,7 +28,7 @@ const TrendingCardRow = ({
         </p>
       </div>
 
-      <div className='w-full'>
+      <div className="w-full">
         <img src={image} alt="sparkline" />
       </div>
 

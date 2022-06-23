@@ -6,12 +6,15 @@ import { MoralisProvider } from 'react-moralis';
 import './index.css';
 
 import { ContextProvider } from './contexts/ContextProvider';
+import { CoinMarketProvider } from './contexts/CoinContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <MoralisProvider>
       <ContextProvider>
-        <App />
+        <CoinMarketProvider>
+          <App />
+        </CoinMarketProvider>
       </ContextProvider>
     </MoralisProvider>
   </React.StrictMode>
