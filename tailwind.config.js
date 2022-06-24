@@ -8,9 +8,19 @@ module.exports = {
       body: ['Open Sans', 'sans-serif'],
     },
     extend: {
+      colors: {
+        'pure-white': '#fff',
+        darkgray: '#222',
+        silver: '#353935',
+        softgray: '#343434',
+      },
       fontSize: {
         14: '14px',
       },
+      backgroundImage: {
+        faze: "url('./src/assets/faze.jpg')",
+      },
+
       backgroundColor: {
         'main-bg': '#FAFBFB',
         'main-dark-bg': '#222',

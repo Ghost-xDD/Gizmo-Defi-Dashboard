@@ -10,7 +10,8 @@ import { ContextProvider } from './contexts/ContextProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MoralisProvider>
+    <MoralisProvider
+    >
       <ContextProvider>
         <App />
       </ContextProvider>
