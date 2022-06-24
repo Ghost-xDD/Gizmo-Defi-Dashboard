@@ -12,6 +12,7 @@ import shiba from '../assets/shiba.png';
 import dai from '../assets/dai.png';
 import tron from '../assets/tron.png';
 import dogecoin from '../assets/dogecoin.png';
+import binance from '../assets/binance.png';
 import wrapped from '../assets/wrapped.png';
 import matic from '../assets/matic.png';
 
@@ -96,6 +97,10 @@ const CoinNameRow = ({ name, icon, clicked }) => {
       case 'Polygon':
         return (
           <img src={matic} className="rounded-full" width={20} height={20} />
+        );
+      case 'Binance USD':
+        return (
+          <img src={binance} className="rounded-full" width={20} height={20} />
         );
     }
   };
