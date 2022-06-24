@@ -13,6 +13,7 @@ import dai from '../assets/dai.png';
 import tron from '../assets/tron.png';
 import dogecoin from '../assets/dogecoin.png';
 import wrapped from '../assets/wrapped.png';
+import matic from '../assets/matic.png';
 
 const styles = {
   coinNameRow: 'flex items-center',
@@ -91,6 +92,10 @@ const CoinNameRow = ({ name, icon, clicked }) => {
       case 'Wrapped Bitcoin':
         return (
           <img src={wrapped} className="rounded-full" width={20} height={20} />
+        );
+      case 'Polygon':
+        return (
+          <img src={matic} className="rounded-full" width={20} height={20} />
         );
     }
   };

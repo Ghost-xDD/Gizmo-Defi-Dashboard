@@ -3,15 +3,19 @@ import btc from '../assets/btc.png';
 import usdt from '../assets/usdt.png';
 import recent from '../assets/recent.png';
 import usdc from '../assets/usdc.png';
+import dogecoin from '../assets/dogecoin.png';
+import bnb from '../assets/bnb.png';
+import matic from '../assets/matic.png';
+import chartUp from '../assets/chartUp.png';
 import ReactSwitch from 'react-switch';
-// import ChevronUp from '../assets/svg/chevronUp';
+
 import Rate from './cmc-table/Rate';
 import TrendingCard from './TrendingCard';
 
 const styles = {
   trendingWrapper: 'mx-auto max-w-screen-2xl px-[80px]',
   h1: 'text-3xl text-white',
-  flexCenter: 'flex-items-center',
+  flexCenter: 'flex items-center',
 };
 
 const trendingData = [
@@ -23,7 +27,7 @@ const trendingData = [
     image:
       'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/52.svg',
     isIncrement: false,
-    rate: '2.34%',
+    rate: '-2.34%',
   },
   {
     number: 2,
@@ -33,7 +37,7 @@ const trendingData = [
     image:
       'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7129.svg',
     isIncrement: false,
-    rate: '1.83%',
+    rate: '-1.83%',
   },
   {
     number: 3,
@@ -42,6 +46,39 @@ const trendingData = [
     icon: usdc,
     image:
       'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2099.svg',
+    isIncrement: true,
+    rate: '2.22%',
+  },
+];
+
+const trendingData2 = [
+  {
+    number: 1,
+    symbol: 'Doge',
+    name: 'Dogecoin',
+    icon: dogecoin,
+    image:
+      'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/6636.svg',
+    isIncrement: true,
+    rate: '+4.04%',
+  },
+  {
+    number: 2,
+    symbol: 'Bnb',
+    name: 'BNB',
+    icon: bnb,
+    image:
+      'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2099.svg',
+    isIncrement: true,
+    rate: '+5.12%',
+  },
+  {
+    number: 3,
+    symbol: 'Matic',
+    name: 'Polygon',
+    icon: matic,
+    image:
+      'https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7129.svg',
     isIncrement: true,
     rate: '2.22%',
   },
@@ -86,6 +123,11 @@ const Trending = () => {
             title="Trending Coins"
             icon={recent}
             trendingData={trendingData}
+          />
+          <TrendingCard
+            title="Top Gainers"
+            icon={chartUp}
+            trendingData={trendingData2}
           />
         </div>
       </div>
