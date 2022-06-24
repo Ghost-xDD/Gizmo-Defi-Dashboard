@@ -22,7 +22,7 @@ const Dashboard = () => {
         <div className="mt-10 ml-10">
           <h3 className="text-gray-300">Networks</h3>
 
-          <div className="flex sm:flex-nowrap  ">
+          <div className="flex md:flex-wrap  ">
             <BalanceRow
               logo={eth}
               name={Ethereum}
