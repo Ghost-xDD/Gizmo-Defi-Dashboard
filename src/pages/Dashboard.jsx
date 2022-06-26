@@ -8,6 +8,7 @@ import bnb from '../assets/bnb.png';
 import polygon from '../assets/polygon.png';
 import avalanche from '../assets/avalanche.png';
 import BalanceRow from '../components/BalanceRow';
+import { useNavigate } from 'react-router-dom';
 
 const Ethereum = 'Ethereum(Rinkeby)';
 const Ethereum2 = 'Ethereum(Ropsten)';
@@ -18,6 +19,7 @@ const BSC = 'BSC';
 const Polygon = 'Polygon';
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const dispatch = useNotification();
   const Web3Api = useMoralisWeb3Api();
   const { isAuthenticated, user } = useMoralis();
@@ -100,18 +102,18 @@ const Dashboard = () => {
               <BalanceRow
                 logo={eth}
                 name={Ethereum}
-                balance={`${rinkebyBalance.slice(0, 10)} `}
+                balance={`${rinkebyBalance.slice(0, 8)} ETH`}
                 className="text-3xl"
               />
               <BalanceRow
                 logo={eth}
                 name={Ethereum2}
-                balance={`${ropstenBalance.slice(0, 10)} `}
+                balance={`${ropstenBalance.slice(0, 8)} ETH`}
               />
               <BalanceRow
                 logo={eth}
                 name={Ethereum3}
-                balance={`${kovanBalance.slice(0, 10)} `}
+                balance={`${kovanBalance.slice(0, 10)} ETH`}
               />
               <br />
               {/* <BalanceRow logo={avalanche} name={Avalanche} balance={balance} /> */}
@@ -119,6 +121,7 @@ const Dashboard = () => {
             </div>
           ) : (
             <></>
+            // navigate('/connectwallet')
           )}
           <div className="flex">
             <BalanceRow logo={bnb} name={BSC} balance={staticData} />

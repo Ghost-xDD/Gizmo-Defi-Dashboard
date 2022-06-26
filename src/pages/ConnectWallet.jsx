@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMoralis } from 'react-moralis';
 import { ConnectButton } from 'web3uikit';
@@ -8,6 +8,17 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const ConnectWallet = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated, user } = useMoralis();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/connectwallet');
+    } else {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated]);
+
   return (
     <div className="w-full">
       <div className="flex items-center justify-between w-full bg-darkgray  h-24">

@@ -10,6 +10,7 @@
   "dependencies": {
     "@syncfusion/ej2-react-popups": "^20.1.58",
     "axios": "^0.27.2",
+    "env-cmd": "^10.1.0",
     "eslint-plugin-react": "^7.30.0",
     "moralis": "^1.8.0",
     "react": "^18.0.0",

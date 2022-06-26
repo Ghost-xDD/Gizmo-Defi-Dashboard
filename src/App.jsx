@@ -26,23 +26,25 @@ function App() {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route element={<FullLayout />}>
-            {/* dashboard  */}
-            {/* <Route path="/" element={<Dashboard />} /> */}
-            <Route path="/dashboard" element={<Dashboard />} />
-
-            {/* pages  */}
-            <Route path="/exchange" element={<Exchange />} />
-            <Route path="/market" element={<Market />} />
-            <Route path="/transfer" element={<Transfer />} />
-            <Route path="/farm" element={<Farm />} />
-            <Route path="/save" element={<Save />} />
-            <Route path="/pool" element={<Pool />} />
-            <Route path="/vaults" element={<Vaults />} />
-          </Route>
           {/* Login Route */}
           <Route path="/" element={<LoginLayout />}>
             <Route index element={<ConnectWallet />} />
+            <Route path="/connectwallet" element={<ConnectWallet />} />
+
+            <Route element={<FullLayout />}>
+              {/* dashboard  */}
+              {/* <Route path="/" element={<Dashboard />} /> */}
+              <Route path="/dashboard" element={<Dashboard />} />
+
+              {/* pages  */}
+              <Route path="/exchange" element={<Exchange />} />
+              <Route path="/market" element={<Market />} />
+              <Route path="/transfer" element={<Transfer />} />
+              <Route path="/farm" element={<Farm />} />
+              <Route path="/save" element={<Save />} />
+              <Route path="/pool" element={<Pool />} />
+              <Route path="/vaults" element={<Vaults />} />
+            </Route>
           </Route>
         </Routes>
       </div>
