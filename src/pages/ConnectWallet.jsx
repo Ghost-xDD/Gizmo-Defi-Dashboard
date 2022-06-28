@@ -7,16 +7,15 @@ import { BsWallet2 } from 'react-icons/bs';
 import { AiOutlineUser } from 'react-icons/ai';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 
-const ConnectWallet = () => {
+const ConnectWallet = ({ isAuthenticated }) => {
   const navigate = useNavigate();
-  const { isAuthenticated, user } = useMoralis();
+  // const { isAuthenticated, user } = useMoralis();
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/connectwallet');
-    } else {
-      navigate('/dashboard');
+      return;
     }
+    navigate('/dashboard');
   }, [isAuthenticated]);
 
   return (

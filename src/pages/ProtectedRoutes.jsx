@@ -1,14 +1,12 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-const useAuth = () => {
-  const user = { loggedIn: false };
-  return user && user.loggedIn;
-};
-
-const ProtectedRoutes = () => {
-  const isAuth = useAuth();
-  return isAuth ? <Outlet /> : <SignIn />;
+const ProtectedRoutes = ({ children, isAuthenticated }) => {
+  if (!isAuthenticated) {
+    <Navigate to="/connectwallet" />;
+    console.log(isAuthenticated);
+  }
+  return children;
 };
 
 export default ProtectedRoutes;

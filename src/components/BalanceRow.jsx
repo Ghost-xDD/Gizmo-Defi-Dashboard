@@ -3,7 +3,7 @@ import React from 'react';
 const BalanceRow = ({ logo, name, balance }) => {
   return (
     <div className="container">
-      <div className="flex items-center  border-solid border-2 border-blue-600 mr-2 mb-3 rounded-md justify-between bg-zinc-800 h-16 ">
+      <div className="flex items-center  border-solid border-2 border-blue-600 mr-2 mb-2 rounded-md justify-between bg-zinc-800 h-16 ">
         <div className="flex items-center">
           <img
             src={logo}

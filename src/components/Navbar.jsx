@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { useMoralis } from 'react-moralis';
-import { useNavigate } from 'react-router-dom';
 
 import { Notification } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -25,8 +23,6 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const { isAuthenticated } = useMoralis();
   const {
     currentColor,
     activeMenu,
@@ -36,12 +32,6 @@ const Navbar = () => {
     setScreenSize,
     screenSize,
   } = useStateContext();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/connectwallet');
-    }
-  }, [isAuthenticated]);
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
