@@ -4,7 +4,6 @@ import { SiShopware } from 'react-icons/si';
 import { GiSamusHelmet } from 'react-icons/gi';
 import { MdOutlineCancel } from 'react-icons/md';
 import { SiBlockchaindotcom } from 'react-icons/si';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/static';
 import { useStateContext } from '../contexts/ContextProvider';

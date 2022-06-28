@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Moralis from 'moralis';
 import { useEffect } from 'react';
 import { useMoralis, useMoralisWeb3Api } from 'react-moralis';
-import { ConnectButton, useNotification, NFTBalance } from 'web3uikit';
+import {  NFTBalance } from 'web3uikit';
 import eth from '../assets/eth.png';
 import bnb from '../assets/bnb.png';
 import polygon from '../assets/polygon.png';
@@ -20,7 +20,7 @@ const Polygon = 'Polygon';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const dispatch = useNotification();
+  // const dispatch = useNotification();
   const Web3Api = useMoralisWeb3Api();
   const { isAuthenticated, user } = useMoralis();
 
