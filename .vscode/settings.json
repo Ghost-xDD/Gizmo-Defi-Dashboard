@@ -1,0 +1,6 @@
+{
+  "solidity.defaultCompiler": "localNodeModule",
+  "solidity.remappingsWindows": [],
+  "solidity.remappings": [],
+  "solidity.packageDefaultDependenciesDirectory": ""
+}
