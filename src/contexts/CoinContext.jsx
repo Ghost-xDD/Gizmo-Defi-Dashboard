@@ -1,4 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
+import { useMoralis, useMoralisQuery } from 'react-moralis';
+
+
 
 export const CoinMarketContext = createContext();
 
