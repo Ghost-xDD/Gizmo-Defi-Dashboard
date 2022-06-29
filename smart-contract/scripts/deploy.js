@@ -24,7 +24,7 @@ const main = async () => {
   const tetherFactory = await hre.ethers.getContractFactory('Tether');
   const tetherContract = await tetherFactory.deploy();
   await tetherContract.deployed();
-  console.log('TetherToken deployed to:', usdcContract.address);
+  console.log('TetherToken deployed to:', tetherContract.address);
 };
 
 (async () => {
