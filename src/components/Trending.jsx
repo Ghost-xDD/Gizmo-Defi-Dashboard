@@ -13,10 +13,12 @@ import Rate from './cmc-table/Rate';
 import TrendingCard from './TrendingCard';
 
 const styles = {
-  trendingWrapper: 'mx-auto max-w-screen-2xl px-[80px]',
+  trendingWrapper: 'mx-auto mt-20 max-w-screen-2xl px-[80px] position-fixed',
   h1: 'text-3xl text-white',
-  flexCenter: 'flex items-center',
+  flexCenter: 'inline md:flex items-center ',
 };
+
+// flexCenter: 'flex items-center
 
 const trendingData = [
   {

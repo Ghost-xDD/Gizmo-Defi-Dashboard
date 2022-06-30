@@ -25,7 +25,7 @@ const styles = {
 
 function App() {
   const { isAuthenticated, user } = useMoralis();
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   return (
     <BrowserRouter>

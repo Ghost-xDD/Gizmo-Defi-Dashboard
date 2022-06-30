@@ -2,7 +2,7 @@ import React from 'react';
 import { FiSettings } from 'react-icons/fi';
 
 import { Navbar, Sidebar, ThemeSettings } from '../components';
-import { useStateContext } from '../contexts/ContextProvider';
+import { useStateContext } from '../contexts/ContextProvider'; 
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
