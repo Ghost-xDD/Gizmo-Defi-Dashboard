@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     >
       <ContextProvider>
         <CoinMarketProvider>
-          <App />
+          <App /> 
         </CoinMarketProvider>
       </ContextProvider>
     </MoralisProvider>
