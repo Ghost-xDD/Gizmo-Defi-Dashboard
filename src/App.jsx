@@ -17,15 +17,8 @@ import LoginLayout from './pages/LoginLayout';
 import ProtectedRoutes from './pages/ProtectedRoutes';
 import { useMoralis } from 'react-moralis';
 
-const styles = {
-  settingsContainer: 'flex relative dark:bg-main-dark-bg',
-  settingsWrapper: 'fixed right-4 bottom-4 z-[1000]',
-  button: 'text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray',
-};
-
 function App() {
-  const { isAuthenticated, user } = useMoralis();
-  
+  const { isAuthenticated } = useMoralis();
 
   return (
     <BrowserRouter>

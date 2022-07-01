@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import CMCTableHeader from './CMCTableHeader';
-import { apiUrl } from '../../pages/api/coinApi';
 import axios from 'axios';
 import CMCTableRow from './CMCTableRow';
 
@@ -9,7 +8,7 @@ const CMCTable = () => {
 
   const getData = async () => {
     try {
-      const response = await axios(apiUrl, {
+      const response = await axios(import.meta.env.VITE_COINGECKO_URL, {
         method: 'GET',
         headers: {
           Accept: '*/*',

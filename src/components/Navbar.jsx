@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { RiNotification3Line } from 'react-icons/ri';
-import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { Notification } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 import { ConnectButton } from 'web3uikit';
 
-const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
+const NavButton = ({ customFunc, icon, color, dotColor }) => (
   <button
     type="button"
     onClick={() => customFunc()}
