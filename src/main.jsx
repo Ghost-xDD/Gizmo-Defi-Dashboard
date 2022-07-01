@@ -12,7 +12,10 @@ import { CoinMarketProvider } from './contexts/CoinContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MoralisProvider>
+    <MoralisProvider
+      serverUrl={import.meta.env.VITE_SERVER_URL}
+      appId={import.meta.env.VITE_APP_ID}
+    >
       <ContextProvider>
         <CoinMarketProvider>
           <App />

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 const Pool = () => {
   return (
-    <div>Pool</div>
-  )
-}
+    <div>
+      <ComingSoon />
+    </div>
+  );
+};
 
-export default Pool
+export default Pool;

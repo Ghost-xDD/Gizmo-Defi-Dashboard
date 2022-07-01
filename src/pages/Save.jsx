@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 const Save = () => {
   return (
-    <div>Save</div>
-  )
-}
+    <div>
+      <ComingSoon />
+    </div>
+  );
+};
 
-export default Save
+export default Save;
