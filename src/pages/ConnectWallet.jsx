@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ConnectButton } from 'web3uikit';
 import { SiBlockchaindotcom } from 'react-icons/si';
 import { AiOutlineUser } from 'react-icons/ai';
+import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const ConnectWallet = ({ isAuthenticated }) => {
   const navigate = useNavigate();
@@ -41,46 +42,27 @@ const ConnectWallet = ({ isAuthenticated }) => {
         </div>
         {/* Next */}
         <div className="pt-20">
-          {/* <table className="table-fixed mx-[20px]">
-            <thead>
-              <tr>
-                <th className="text-2xl text-white font-bold ">App Features</th>
-              </tr>
-            </thead>
-            &nbsp;
-            <tbody>
-              <tr>
-                <td className="flex items-center text-gray-400">
-                  <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
-                  &nbsp; View Test Token Balance across multiple chains
-                </td>
-              </tr>
-              <tr>
-                <td className="flex items-center text-gray-400">
-                  <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
-                  &nbsp; DEX (Swap tokens with ease)
-                </td>
-              </tr>
-              <tr>
-                <td className="flex items-center text-gray-400">
-                  <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
-                  &nbsp; Live Tracker of Top 20 cryptocurrencies
-                </td>
-              </tr>
-              <tr>
-                <td className="flex items-center text-gray-400">
-                  <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
-                  &nbsp; Dynamic Coin Page
-                </td>
-              </tr>
-              <tr>
-                <td className="flex items-center text-gray-400">
-                  <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
-                  &nbsp; Transfer ERC20 Tokens to any wallet
-                </td>
-              </tr>
-            </tbody>
-          </table> */}
+          <h4 className="text-2xl text-white text-center font-bold mb-2">
+            App Features
+          </h4>
+          <ul>
+            <li className="flex items-center text-gray-400 mb-2">
+              <IoIosCheckmarkCircle className="text-sky-500 text-2xl" /> &nbsp;
+              View Test Token Balance across multiple chains
+            </li>
+            <li className="flex items-center text-gray-400 mb-2">
+              <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
+              &nbsp; View NFTs Balance on Rinkeby Testnet
+            </li>
+            <li className="flex items-center text-gray-400 mb-2">
+              <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
+              &nbsp; DEX Simulator (Swap 6 tokens with ease)
+            </li>
+            <li className="flex items-center text-gray-400 mb-2">
+              <IoIosCheckmarkCircle className="text-sky-500 text-2xl" />
+              &nbsp; Live Tracker of Top 20 cryptocurrencies
+            </li>
+          </ul>
         </div>
       </div>
     </div>
