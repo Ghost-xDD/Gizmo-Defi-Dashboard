@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 const Vaults = () => {
   return (
-    <div>Vaults</div>
-  )
-}
+    <div>
+      <ComingSoon />
+    </div>
+  );
+};
 
-export default Vaults
+export default Vaults;

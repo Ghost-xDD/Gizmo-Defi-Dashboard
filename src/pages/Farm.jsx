@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ComingSoon from '../components/ComingSoon';
 
 const Farm = () => {
   return (
-    <div>Farm</div>
-  )
-}
+    <div>
+      <ComingSoon />
+    </div>
+  );
+};
 
-export default Farm
+export default Farm;

@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMoralis } from 'react-moralis';
 import { ConnectButton } from 'web3uikit';
 import { SiBlockchaindotcom } from 'react-icons/si';
-import { BsWallet2 } from 'react-icons/bs';
 import { AiOutlineUser } from 'react-icons/ai';
-import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const ConnectWallet = ({ isAuthenticated }) => {
   const navigate = useNavigate();
-  // const { isAuthenticated, user } = useMoralis(); 
 
   useEffect(() => {
     if (!isAuthenticated) return;
