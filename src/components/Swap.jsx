@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CoinMarketContext, CoinMarketProvider } from '../contexts/CoinContext';
 
 const styles = {
-  modalContent: ' ml-16 bg-white rounded-lg p-10 w-max w-3/4',
+  modalContent: 'ml-16 bg-white rounded-lg p-10 w-max w-3/4',
   input: 'w-full p-2 border rounded-lg mb-5 border-gray-600/50 outline-none',
   button: 'bg-[#1E4DB7] p-2 px-5 rounded-lg text-white hover:opacity-50',
   label: 'font-bold text-2xl mb-8',
@@ -22,7 +22,7 @@ const Swap = () => {
   } = useContext(CoinMarketContext);
 
   return (
-    <div className="container w-full">
+    <div className="container w-full mx-auto">
       <div className={styles.modalContent}>
         <div className="flex items-center justify-between">
           <p className={styles.label}>Swap Your Crypto</p>

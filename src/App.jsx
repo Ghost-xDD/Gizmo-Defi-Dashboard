@@ -33,7 +33,10 @@ function App() {
         <Routes>
           {/* Login Route */}
           <Route element={<LoginLayout />}>
-            <Route path="/connectwallet" element={<ConnectWallet />} />
+            <Route
+              path="/connectwallet"
+              element={<ConnectWallet isAuthenticated={isAuthenticated} />}
+            />
 
             <Route
               path="/"
@@ -46,48 +49,13 @@ function App() {
               {/* dashboard  */}
               {/* <Route path="/" element={<Dashboard />} /> */}
 
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoutes isAuthenticated={isAuthenticated}>
-                    <Dashboard />
-                  </ProtectedRoutes>
-                }
-              />
+              <Route path="/dashboard" element={<Dashboard />} />
 
               {/* pages  */}
-              <Route
-                path="/exchange"
-                element={
-                  <ProtectedRoutes isAuthenticated={isAuthenticated}>
-                    <Exchange />
-                  </ProtectedRoutes>
-                }
-              />
-              <Route
-                path="/market"
-                element={
-                  <ProtectedRoutes isAuthenticated={isAuthenticated}>
-                    <Market />
-                  </ProtectedRoutes>
-                }
-              />
-              <Route
-                path="/transfer"
-                element={
-                  <ProtectedRoutes isAuthenticated={isAuthenticated}>
-                    <Transfer />
-                  </ProtectedRoutes>
-                }
-              />
-              <Route
-                path="/farm"
-                element={
-                  <ProtectedRoutes isAuthenticated={isAuthenticated}>
-                    <Farm />
-                  </ProtectedRoutes>
-                }
-              />
+              <Route path="/exchange" element={<Exchange />} />
+              <Route path="/market" element={<Market />} />
+              <Route path="/transfer" element={<Transfer />} />
+              <Route path="/farm" element={<Farm />} />
               <Route path="/save" element={<Save />} />
               <Route path="/pool" element={<Pool />} />
               <Route path="/vaults" element={<Vaults />} />

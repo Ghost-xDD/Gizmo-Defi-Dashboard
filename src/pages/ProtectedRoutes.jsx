@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 
 const ProtectedRoutes = ({ children, isAuthenticated }) => {
   if (!isAuthenticated) {
-    <Navigate to="/connectwallet" />;
+    return <Navigate to="/connectwallet" />;
     console.log(isAuthenticated);
   }
   return children;
