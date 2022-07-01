@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CoinMarketContext, CoinMarketProvider } from '../contexts/CoinContext';
+import { CoinMarketContext } from '../contexts/CoinContext';
 
 const styles = {
   modalContent: 'ml-16 bg-zinc-800 dark:bg-white rounded-lg p-10 w-max w-3/4',
