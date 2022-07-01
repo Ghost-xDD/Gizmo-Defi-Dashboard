@@ -1,7 +1,5 @@
-import { useState, useContext, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import CMCTableHeader from './CMCTableHeader';
-import btc from '../../assets/btc.png';
-import getTopCoins from '../../pages/api/getTopCoins';
 import { apiUrl } from '../../pages/api/coinApi';
 import axios from 'axios';
 import CMCTableRow from './CMCTableRow';
