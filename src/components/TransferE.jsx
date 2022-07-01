@@ -1,11 +1,10 @@
 import React from 'react';
-import eth from '../assets/ethereum.png';
 
 const styles = {
-  modalContent: ' ml-16 bg-white rounded-lg p-10 w-max w-3/4',
+  modalContent: ' ml-16 bg-zinc-800 dark:bg-white rounded-lg p-10 w-max w-3/4',
   input: 'w-full p-2 border rounded-lg mb-5 border-gray-600/50 outline-none',
   button: 'bg-[#1E4DB7] p-2 px-5 rounded-lg text-white hover:opacity-50',
-  label: 'font-bold text-2xl mb-8',
+  label: 'font-bold text-2xl mb-8 text-white dark:text-black',
 };
 
 const TransferE = () => {
@@ -16,7 +15,10 @@ const TransferE = () => {
           <p className={styles.label}>Transfer ERC20 Token</p>
         </div>
         <div className="mb-5">
-          <label htmlFor="address" className="block mb-2 ml-2">
+          <label
+            htmlFor="address"
+            className="block mb-2 ml-2 text-white dark:text-black"
+          >
             Address
           </label>
           <input
@@ -25,7 +27,10 @@ const TransferE = () => {
             placeholder="Receiver Address"
           />
 
-          <label htmlFor="address" className="block mb-2 ml-2">
+          <label
+            htmlFor="address"
+            className="block mb-2 ml-2 text-white dark:text-black"
+          >
             Asset
           </label>
           <select
@@ -35,7 +40,10 @@ const TransferE = () => {
           >
             <option value="eth">ETH</option>
           </select>
-          <label htmlFor="amount" className="block mb-2 ml-2">
+          <label
+            htmlFor="amount"
+            className="block mb-2 ml-2 text-white dark:text-black"
+          >
             Amount
           </label>
           <input

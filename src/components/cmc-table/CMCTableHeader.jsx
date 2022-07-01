@@ -11,33 +11,35 @@ const CMCTableHeader = () => {
     <tbody>
       <tr>
         <th></th>
-        <th className="flex items-center">
+        <th className="flex items-center text-black dark:text-white">
           <b># &nbsp;</b>
           <ChevronDown />
         </th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>24h %</th>
+        <th className="text-black dark:text-white">Name</th>
+        <th className="text-black dark:text-white">Price</th>
+        <th className="text-black dark:text-white">24h %</th>
         {/* <th>7d %</th> */}
         <th>
           <div className={styles.textIcon}>
-            <p className="mr-2">Market Cap</p>
+            <p className="mr-2 text-black dark:text-white">Market Cap</p>
             <Info />
           </div>
         </th>
         <th>
           <div className={styles.textIcon}>
-            <p className="mr-2">Volume</p>
+            <p className="mr-2 text-black dark:text-white">Volume</p>
             <Info />
           </div>
         </th>
         <th>
           <div className={styles.textIcon}>
-            <p className="mr-2">Circulating Supply</p>
+            <p className="mr-2 text-black dark:text-white">
+              Circulating Supply
+            </p>
             <Info />
           </div>
         </th>
-        <th>Last 7 days</th>
+        <th className="text-black dark:text-white">Last 7 days</th>
       </tr>
     </tbody>
   );

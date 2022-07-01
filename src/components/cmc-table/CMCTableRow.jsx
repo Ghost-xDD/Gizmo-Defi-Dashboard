@@ -5,7 +5,7 @@ import Rate from './Rate';
 import CoinNameRow from '../CoinNameRow';
 
 const styles = {
-  tableRow: 'text-white border-b border-gray-800 text-[0.93rem] ',
+  tableRow: 'text-black dark:text-white border-b border-gray-800 text-[0.93rem] ',
 };
 
 const CMCTableRow = ({
@@ -69,14 +69,14 @@ const CMCTableRow = ({
         <td>{starNum}</td>
 
         {coinIcon && coinIcon ? (
-          <td className="cursor-pointer">
+          <td className="cursor-pointer text-black dark:text-white">
             <CoinNameRow name={coinName} icon={coinIcon} />
           </td>
         ) : (
           <></>
         )}
 
-        <td className="cursor-pointer">
+        <td className="cursor-pointer text-black dark:text-white">
           <p>${formatNum(price)}</p>
         </td>
         <td>{applyIndicator(hRate)}</td>
