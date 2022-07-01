@@ -19,12 +19,16 @@ export const CoinMarketContext = createContext();
 export const CoinMarketProvider = ({ children }) => {
   const { isAuthenticated, user, Moralis } = useMoralis();
 
-  // useMoralisQuery()
+  const {
+    data: coins,
+    error,
+    isLoading: loadingCoins,
+  } = useMoralisQuery('Coins');
   const [currentAccount, setCurrentAccount] = useState('');
   const [openBuyCryptoModal, setOpenBuyCryptoModal] = useState(false);
   const [fromToken, setFromToken] = useState('');
-  const [toToken, setToToken] = useState();
-  const [amount, setAmount] = useState();
+  const [toToken, setToToken] = useState('Dai');
+  const [amount, setAmount] = useState('');
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -38,7 +42,7 @@ export const CoinMarketProvider = ({ children }) => {
     if (fromToken === 'DogeCoin') return dogeAddress;
     if (fromToken === 'Link') return linkAddress;
     if (fromToken === 'Usdc') return usdcAddress;
-    // if (fromToken === 'Tether') return tetherAddress;
+    if (fromToken === 'Tether') return tetherAddress;
   };
 
   const getToAddress = () => {
@@ -46,7 +50,7 @@ export const CoinMarketProvider = ({ children }) => {
     if (toToken === 'DogeCoin') return dogeAddress;
     if (toToken === 'Link') return linkAddress;
     if (toToken === 'Usdc') return usdcAddress;
-    // if (toToken === 'Tether') return tetherAddress;
+    if (toToken === 'Tether') return tetherAddress;
   };
 
   const getToAbi = () => {
@@ -54,7 +58,7 @@ export const CoinMarketProvider = ({ children }) => {
     if (toToken === 'DogeCoin') return dogeAbi;
     if (toToken === 'Link') return linkAbi;
     if (toToken === 'Usdc') return usdcAbi;
-    // if (toToken === 'Tether') return tetherAbi;
+    if (toToken === 'Tether') return tetherAbi;
   };
 
   const mint = async () => {
@@ -79,7 +83,7 @@ export const CoinMarketProvider = ({ children }) => {
         const receipt = await transactions.wait(4);
         console.log(receipt);
       } else {
-        // swapTokens()
+        swapTokens()
       }
     } catch (error) {
       console.error(error.message);
@@ -97,8 +101,27 @@ export const CoinMarketProvider = ({ children }) => {
         type: 'erc20',
         amount: Moralis.Units.Token(amount, '18'),
         receiver: getContractAddress(),
+        contractAddress: getContractAddress(),
       };
-    } catch (error) {}
+
+      const toMintOptions = {
+        contractAddress: getToAddress(),
+        functionName: 'mint',
+        abi: getToAbi(),
+        params: {
+          to: currentAccount,
+          amount: Moralis.Units.Token(amount, '18'),
+        },
+      };
+      let fromTransaction = await Moralis.transfer(fromOptions);
+      let toMintTransaction = await Moralis.executeFunction(toMintOptions);
+      let fromReceipt = await fromTransaction.wait();
+      let toReceipt = await toMintTransaction.wait();
+      console.log(fromReceipt);
+      console.log(toReceipt);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const sendEth = async () => {
@@ -106,7 +129,7 @@ export const CoinMarketProvider = ({ children }) => {
     const contractAddress = getToAddress();
 
     let options = {
-      type: native,
+      type: 'native',
       amount: Moralis.Units.ETH('0.01'),
       receiver: contractAddress,
     };
@@ -115,17 +138,36 @@ export const CoinMarketProvider = ({ children }) => {
     console.log(receipt);
   };
 
-  const getTopTwentyCoins = async () => {
-    try {
-      const res = await fetch('/api/getTopTwenty');
-      const data = await res.json();
-      return data.data.data;
-    } catch (e) {
-      console.log(e.message);
-    }
+  const openModal = () => {
+    setOpenBuyCryptoModal(true);
   };
+
+  // const getTopTwentyCoins = async () => {
+  //   try {
+  //     const res = await fetch('/api/getTopTwenty');
+  //     const data = await res.json();
+  //     return data.data.data;
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // };
   return (
-    <CoinMarketContext.Provider value={{ getTopTwentyCoins }}>
+    <CoinMarketContext.Provider
+      value={{
+        openBuyCryptoModal,
+        setOpenBuyCryptoModal,
+        fromToken,
+        toToken,
+        setFromToken,
+        setToToken,
+        amount,
+        setAmount,
+        mint,
+        openModal,
+        coins,
+        loadingCoins,
+      }}
+    >
       {children}
     </CoinMarketContext.Provider>
   );

@@ -9,13 +9,12 @@ import { IoIosCheckmarkCircle } from 'react-icons/io';
 
 const ConnectWallet = ({ isAuthenticated }) => {
   const navigate = useNavigate();
-  // const { isAuthenticated, user } = useMoralis();
+  // const { isAuthenticated, user } = useMoralis(); 
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      return;
-    }
-    navigate('/dashboard');
+    if (!isAuthenticated) return;
+
+    navigate('/');
   }, [isAuthenticated]);
 
   return (
