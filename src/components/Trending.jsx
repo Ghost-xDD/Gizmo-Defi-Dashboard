@@ -14,7 +14,7 @@ import TrendingCard from './TrendingCard';
 
 const styles = {
   trendingWrapper: 'mx-auto mt-20 max-w-screen-2xl px-[80px] position-fixed',
-  h1: 'text-3xl text-white',
+  h1: 'text-3xl text-black dark:text-white',
   flexCenter: 'inline md:flex items-center ',
 };
 
