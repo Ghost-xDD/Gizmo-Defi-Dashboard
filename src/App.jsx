@@ -36,6 +36,7 @@ function App() {
               element={
                 <ProtectedRoutes isAuthenticated={isAuthenticated}>
                   <FullLayout />
+                  {/* <Dashboard /> */}
                 </ProtectedRoutes>
               }
             >

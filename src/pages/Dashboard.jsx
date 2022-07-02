@@ -12,6 +12,16 @@ import bnb from '../assets/bnb.png';
 import polygon from '../assets/polygon.png';
 import avalanche from '../assets/avalanche.png';
 import BalanceRow from '../components/BalanceRow';
+import { Triangle } from 'react-loader-spinner';
+import ScaleLoader from 'react-spinners/ScaleLoader';
+
+const override = {
+  display: 'block',
+  margin: '0 auto',
+  borderColor: 'red',
+  marginTop: '220px',
+  textAlign: 'center',
+};
 
 const Ethereum = 'Ethereum(Rinkeby)';
 const Ethereum2 = 'Ethereum(Ropsten)';
@@ -27,6 +37,8 @@ const Polygon = 'Polygon';
 const Dashboard = () => {
   const Web3Api = useMoralisWeb3Api();
   const { isAuthenticated, user } = useMoralis();
+  const [isLoading, setIsLoading] = useState(false);
+  const [color, setColor] = useState('#1E4DB7');
 
   const userAddress = user?.get('ethAddress');
 
@@ -42,10 +54,12 @@ const Dashboard = () => {
     const options = { chain, address: userAddress };
     const result = await Web3Api.account.getNativeBalance(options);
     console.log(result);
+    setIsLoading(false);
     return result.balance;
   };
 
   const fetchBalances = async () => {
+    setIsLoading(true);
     const balances = await Promise.all([
       fetchTokenBalances('rinkeby'),
       fetchTokenBalances('kovan'),
@@ -79,77 +93,88 @@ const Dashboard = () => {
     setMumbaiBalance(mumbaiBalanceMatic);
     setBscBalance(bscBalanceBnb);
     setAvalancheBalance(avalancheBalanceAvax);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     if (isAuthenticated) {
       fetchBalances();
+
       // nativeBalanceFetch();
     }
   }, [isAuthenticated]);
 
   return (
     <div className="dashboard">
-      <div className="container">
-        <div className="ml-10 mt-20 md:mt-16">
-          <h4 className="dark:text-gray-300">Net Worth</h4>
-          <h2 className="dark:text-gray-300 font-bold text-3xl">$2,053.05</h2>
-          <h5 className="dark:text-gray-300">Assets: $2,053.05</h5>
-        </div>
+      {isLoading ? (
+        <ScaleLoader
+          color={color}
+          loading={isLoading}
+          cssOverride={override}
+          size={20}
+        />
+      ) : (
+        <div className="container">
+          <div className="ml-10 mt-20 md:mt-16">
+            <h4 className="dark:text-gray-300">Net Worth</h4>
+            <h2 className="dark:text-gray-300 font-bold text-3xl">$2,053.05</h2>
+            <h5 className="dark:text-gray-300">Assets: $2,053.05</h5>
+          </div>
 
-        <div className="mt-10 mx-10">
-          <h3 className="dark:text-gray-300 font-bold">Networks</h3>
-          &nbsp;
-          {isAuthenticated ? (
-            <div className="mb-10">
-              <div className="flex flex-wrap md:flex-nowrap">
-                <BalanceRow
-                  logo={eth}
-                  name={Ethereum}
-                  balance={`${rinkebyBalance.slice(0, 8)} ETH`}
-                  className="text-3xl"
-                />
-                <BalanceRow
-                  logo={eth}
-                  name={Ethereum2}
-                  balance={`${ropstenBalance.slice(0, 8)} ETH`}
-                />
-                <BalanceRow
-                  logo={eth}
-                  name={Ethereum3}
-                  balance={`${kovanBalance.slice(0, 10)} ETH`}
-                />
+          <div className="mt-10 mx-10">
+            <h3 className="dark:text-gray-300 font-bold">Networks</h3>
+            &nbsp;
+            {isAuthenticated ? (
+              <div className="mb-10">
+                <div className="flex flex-wrap md:flex-nowrap">
+                  <BalanceRow
+                    logo={eth}
+                    name={Ethereum}
+                    balance={`${rinkebyBalance.slice(0, 8)} ETH`}
+                    className="text-3xl"
+                  />
+                  <BalanceRow
+                    logo={eth}
+                    name={Ethereum2}
+                    balance={`${ropstenBalance.slice(0, 8)} ETH`}
+                  />
+                  <BalanceRow
+                    logo={eth}
+                    name={Ethereum3}
+                    balance={`${kovanBalance.slice(0, 10)} ETH`}
+                  />
+                </div>
+                <div className="flex flex-wrap md:flex-nowrap">
+                  <BalanceRow
+                    logo={polygon}
+                    name={Mumbai}
+                    balance={`${mumbaiBalance.slice(0, 10)} MATIC`}
+                  />
+                  <BalanceRow
+                    logo={bnb}
+                    name={Bsc}
+                    balance={`${bscBalance.slice(0, 10)} BNB`}
+                  />
+                  <BalanceRow
+                    logo={avalanche}
+                    name={Avalanche}
+                    balance={`${avalancheBalance.slice(0, 10)} AVAX`}
+                  />
+                </div>
               </div>
-              <div className="flex flex-wrap md:flex-nowrap">
-                <BalanceRow
-                  logo={polygon}
-                  name={Mumbai}
-                  balance={`${mumbaiBalance.slice(0, 10)} MATIC`}
-                />
-                <BalanceRow
-                  logo={bnb}
-                  name={Bsc}
-                  balance={`${bscBalance.slice(0, 10)} BNB`}
-                />
-                <BalanceRow
-                  logo={avalanche}
-                  name={Avalanche}
-                  balance={`${avalancheBalance.slice(0, 10)} AVAX`}
-                />
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
-        </div>
+            ) : (
+              <></>
+            )}
+          </div>
 
-        <div className=" mx-10">
-          <h3 className="dark:text-gray-300 font-bold">NFTs</h3>
-          <div className="w-full">
-            <NFTBalance address={userAddress} chain="rinkeby" />
+          <div className=" mx-10">
+            <h3 className="dark:text-gray-300 font-bold">NFTs</h3>
+            {/* <div className="w-full">
+              <NFTBalance address={userAddress} chain="rinkeby" />
+            </div> */}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
